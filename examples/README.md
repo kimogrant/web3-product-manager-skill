@@ -1,8 +1,10 @@
-# Examples
+# Examples (canonical copy)
 
-Fictional patterns for agent reference. Copied into each installed skill folder by `./skill.sh install`.
+Single source of truth. **`skill.sh` / `install.ps1`** copy this folder into every installed skill’s `examples/`.
 
-| File | Used with |
-|------|-----------|
-| [strategy-memo-sample.md](strategy-memo-sample.md) | `web3-product-strategy`, orchestrator Step 1 |
-| [prd-story-sample.md](prd-story-sample.md) | `web3-product-specification`, orchestrator Step 2 |
+| File | Demonstrates |
+|------|----------------|
+| [strategy-memo-sample.md](strategy-memo-sample.md) | Source index, tier tags, kill conditions, handoff |
+| [prd-story-sample.md](prd-story-sample.md) | SRC-tagged user story, three layers, `TBD` discipline |
+
+Do not duplicate these files under `skills/*/examples/` in the repo—edit here only.

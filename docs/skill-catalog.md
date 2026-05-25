@@ -6,6 +6,12 @@
 | `web3-product-strategy` | Workflow | `/web3-product-strategy` | Strategy memo |
 | `web3-product-specification` | Workflow | `/web3-product-specification` | PRD + gate artifacts |
 
+## Reference index (orchestrator)
+
+| File | Purpose |
+|------|---------|
+| `pipeline-summary.md` | Step 1/2 routing and child-skill paths |
+
 ## Reference index (specification skill)
 
 | File | Purpose |
@@ -17,6 +23,8 @@
 | `defi-product-surface.md` | DeFi vertical |
 | `l2-product-surface.md` | L2 vertical |
 | `consumer-product-surface.md` | Consumer vertical |
+| `evidence-tiers.md` | Tier tags (self-contained) |
+| `cross-chain-risks.md` | Bridge / multi-chain |
 
 ## Reference index (strategy skill)
 

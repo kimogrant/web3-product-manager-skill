@@ -50,6 +50,9 @@ class TestLayout(unittest.TestCase):
                 "strategy-memo-template.md",
                 "data-sources.md",
             ],
+            "web3-product-manager": [
+                "pipeline-summary.md",
+            ],
             "web3-product-specification": [
                 "gate-guide.md",
                 "prd-template.md",
@@ -58,6 +61,8 @@ class TestLayout(unittest.TestCase):
                 "defi-product-surface.md",
                 "l2-product-surface.md",
                 "consumer-product-surface.md",
+                "evidence-tiers.md",
+                "cross-chain-risks.md",
             ],
         }
         for skill, files in refs.items():

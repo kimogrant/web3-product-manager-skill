@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.3.0] — 2026-05-25
+
+### Added
+
+- Orchestrator `references/pipeline-summary.md` with explicit child-skill read paths
+- `evidence-tiers.md` and `cross-chain-risks.md` (specification references)
+- GitHub Actions CI (`.github/workflows/ci.yml`)
+- `.github/llms.txt` for agent discovery
+- Windows `install.ps1`
+- `metadata.version` on all three skills
+
+### Changed
+
+- Examples canonical in repo `examples/` only; enriched with Source index and SRC tags
+- `skill.sh` / `install.ps1` copy examples into each installed skill
+- L2 module links to self-contained `evidence-tiers.md` (no fragile cross-skill path)
+- Phase guide uses `.cursor/skills/...` paths for domain modules
+
 ## [1.2.0] — 2026-05-25
 
 ### Added

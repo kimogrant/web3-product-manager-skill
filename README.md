@@ -4,7 +4,7 @@ Agent Skills for **Web3 product management**: strategy decisions, on-chain signa
 
 Built for the [Agent Skills](https://agentskills.io) format (`SKILL.md` + on-demand `references/`). Works with **Cursor**, Claude Code, Codex, and other agents that discover skills from `.cursor/skills/` or `~/.cursor/skills/`.
 
-**Version:** [`1.2.0`](VERSION) · [Changelog](CHANGELOG.md) · [Skill catalog](docs/skill-catalog.md)
+**Version:** [`1.3.0`](VERSION) · [Changelog](CHANGELOG.md) · [Skill catalog](docs/skill-catalog.md)
 
 ---
 
@@ -55,11 +55,17 @@ web3-product-manager-skill/
 git clone https://github.com/kimogrant/web3-product-manager-skill.git
 cd web3-product-manager-skill
 chmod +x skill.sh
-./skill.sh list
 ./skill.sh install /path/to/your/project
 ```
 
-Copies each skill bundle into `TARGET/.cursor/skills/<skill-name>/` including `references/` and `examples/`.
+Windows (PowerShell):
+
+```powershell
+.\install.ps1 -Target D:\path\to\your\project
+# or: .\install.ps1 -Personal
+```
+
+Copies each skill bundle into `TARGET/.cursor/skills/<skill-name>/` including `references/` and `examples/` (from repo `examples/`).
 
 Reload Cursor, then invoke:
 
@@ -104,9 +110,10 @@ Each workflow skill includes a **When NOT to use** section to reduce mistaken au
 ## Quality checks
 
 ```bash
-python tests/test_layout.py
-python tests/test_quality.py
+python -m unittest discover -s tests -v
 ```
+
+CI runs the same on push (see `.github/workflows/ci.yml`).
 
 ---
 

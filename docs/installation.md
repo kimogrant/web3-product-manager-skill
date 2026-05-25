@@ -3,12 +3,20 @@
 ## Requirements
 
 - Cursor (or another agent that loads `SKILL.md` from skill directories)
-- Bash for `skill.sh` (Git Bash / WSL on Windows), or manual copy
+- Bash for `skill.sh` (Git Bash / WSL), **or** PowerShell for `install.ps1` on Windows
 
 ## Project-scoped install
 
+**Unix / Git Bash:**
+
 ```bash
 ./skill.sh install /path/to/your/repo
+```
+
+**Windows PowerShell:**
+
+```powershell
+.\install.ps1 -Target D:\path\to\your\repo
 ```
 
 Result (three skills):
@@ -28,7 +36,11 @@ Commit `.cursor/skills/` if you want teammates to get the same agent behavior.
 ./skill.sh install --personal
 ```
 
-Installs under `~/.cursor/skills/` (Unix-like). Skills apply across projects.
+```powershell
+.\install.ps1 -Personal
+```
+
+Installs under `~/.cursor/skills/` (or `%USERPROFILE%\.cursor\skills\` on Windows). Skills apply across projects.
 
 ## Verify discovery
 

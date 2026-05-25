@@ -65,11 +65,11 @@ Use [data-sources.md](data-sources.md) for source priority.
 
 **Domain lenses (optional, Phase 2):** If the decision is clearly DeFi, L2, or Consumer, load the matching specialist reference from the specification skill for benchmark and risk prompts:
 
-| Domain | File (in `web3-product-specification/references/`) |
-|--------|-----------------------------------------------------|
-| DeFi | `defi-product-surface.md` — §2 audit + §5 metrics |
-| L2 | `l2-product-surface.md` — §2 trust assumptions + §5 metrics |
-| Consumer | `consumer-product-surface.md` — §2 funnel + §8 metrics |
+| Domain | File (sibling skill — install both) |
+|--------|-------------------------------------|
+| DeFi | `.cursor/skills/web3-product-specification/references/defi-product-surface.md` |
+| L2 | `.cursor/skills/web3-product-specification/references/l2-product-surface.md` |
+| Consumer | `.cursor/skills/web3-product-specification/references/consumer-product-surface.md` |
 
 **Rules:**
 

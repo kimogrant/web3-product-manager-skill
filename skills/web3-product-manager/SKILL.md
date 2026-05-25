@@ -6,8 +6,12 @@ description: >
   mandatory human checkpoints. Use when starting a greenfield feature end-to-end,
   running go/no-go through PRD, or when the user asks for the full Web3 PM pipeline.
   Triggers include full product workflow, end to end PM, from idea to PRD,
-  web3 product manager, strategy then spec. Do not use for single-phase tasks
-  that should invoke a child skill directly.
+  web3 product manager, web3-product-strategy, web3-product-specification,
+  strategy then spec. Do not use for single-phase tasks that should invoke a child
+  skill directly.
+metadata:
+  version: "1.3.0"
+  package: web3-product-manager-skill
 ---
 
 # Web3 Product Manager (Orchestrator)
@@ -16,7 +20,9 @@ description: >
 
 Single entry point for **strategy → confirmed memo → specification → engineering-ready PRD**.
 
-Child skills hold the detailed playbooks; this skill only **routes, enforces order, and tracks state**.
+Child skills hold the detailed playbooks; this skill **routes, enforces order, and tracks state**.
+
+**Start here:** [references/pipeline-summary.md](references/pipeline-summary.md) — then **read each child `SKILL.md` on disk** (paths in pipeline summary). Do not simulate child skills from memory.
 
 ---
 
@@ -63,12 +69,13 @@ Assign **source IDs** at kickoff (carry through both skills):
 
 ## Orchestration rules
 
-1. **Step 1:** Follow `web3-product-strategy` (load its `references/` per phase only).
-2. **Checkpoint:** After Phase 4 memo, stop and request confirmation.
-3. **Step 2:** Pass memo + source index into `web3-product-specification`; follow gates 0→4.
-4. **Domain modules:** If DeFi/L2/Consumer, load the matching `references/*-product-surface.md` during spec gates 0–2.
-5. **Traceability:** Requirements and memo claims use `(Source: SRC-n, tier)` tags per child skill rules.
-6. **Status block** at end of each step:
+1. Load [pipeline-summary.md](references/pipeline-summary.md).
+2. **Step 1:** Read `.cursor/skills/web3-product-strategy/SKILL.md` (or repo path); load that skill’s `references/` per phase only.
+3. **Checkpoint:** After Phase 4 memo, stop until user confirms.
+4. **Step 2:** Read `.cursor/skills/web3-product-specification/SKILL.md`; gates 0→4; memo = SRC-2 in new index.
+5. **Domain / cross-chain:** Load specification `references/*-product-surface.md` and `cross-chain-risks.md` when applicable.
+6. **Traceability:** `(Source: SRC-n, tier)` on material claims (see child skills).
+7. **Status block** at end of each step:
 
 ```markdown
 ## ORCHESTRATOR STATUS
@@ -88,6 +95,12 @@ Assign **source IDs** at kickoff (carry through both skills):
 | Specification | `web3-product-specification` |
 
 Examples (after install): `examples/strategy-memo-sample.md`, `examples/prd-story-sample.md`
+
+## References
+
+| File | When |
+|------|------|
+| [pipeline-summary.md](references/pipeline-summary.md) | Every orchestrator session (first) |
 
 ---
 

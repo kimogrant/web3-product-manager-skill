@@ -1,0 +1,30 @@
+# Web3 Product Manager Skills
+
+Canonical repo: https://github.com/kimogrant/web3-product-manager-skill
+
+Agent Skills package for Web3 product management (strategy memo, PRD, tokenomics and compliance gates).
+
+## Skills (install all three)
+
+- web3-product-manager — orchestrator; read skills/web3-product-manager/references/pipeline-summary.md first
+- web3-product-strategy — go/no-go, phases 1-5, strategy memo
+- web3-product-specification — gates 0-4, PRD, DeFi/L2/Consumer domain references
+
+## Install
+
+- Unix: ./skill.sh install <project-path>
+- Windows: .\install.ps1 <project-path>
+
+Target: <project>/.cursor/skills/<skill-name>/
+
+## Key files
+
+- skills/web3-product-strategy/SKILL.md
+- skills/web3-product-specification/SKILL.md
+- examples/strategy-memo-sample.md
+- examples/prd-story-sample.md
+- VERSION
+
+## License
+
+MIT

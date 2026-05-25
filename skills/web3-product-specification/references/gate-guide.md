@@ -21,7 +21,9 @@ Load when the product fits (multiple allowed):
 | [l2-product-surface.md](l2-product-surface.md) | L2/rollup, bridge, paymaster, sequencer-dependent UX |
 | [consumer-product-surface.md](consumer-product-surface.md) | Retail onboarding, social, gaming, NFT app, mini-app |
 
-Append completed checklist sections to PRD §4 or §6 as **Domain appendix**.
+Append completed checklist sections to PRD §5b as **Domain appendix**.
+
+**Cross-chain / bridges:** load [cross-chain-risks.md](cross-chain-risks.md) when multiple chains or bridge routes are in scope.
 
 ---
 

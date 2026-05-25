@@ -103,7 +103,7 @@ Record: **chain ID**, **native gas token**, **canonical bridge contract(s)**, **
 | Bridge volume | In vs out; net flow signal |
 | Time-to-first-tx | Include bridge wait in funnel |
 
-Phase 2 research: tag sources with chain scope (see strategy [data-sources.md](../../web3-product-strategy/references/data-sources.md)).
+Phase 2 research: tag sources with chain scope. Use [evidence-tiers.md](evidence-tiers.md) in this skill; optional deep dive: sibling `web3-product-strategy/references/data-sources.md` if both skills are installed.
 
 ---
 

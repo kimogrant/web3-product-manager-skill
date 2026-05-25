@@ -9,6 +9,9 @@ description: >
   feature, wallet flow, tokenomics design, governance feature, compliance review.
   Requires a confirmed strategy memo from web3-product-strategy. Not for pure
   smart contract coding or visual design tokens alone.
+metadata:
+  version: "1.3.0"
+  package: web3-product-manager-skill
 ---
 
 # Web3 Product Specification
@@ -121,6 +124,10 @@ Load [tokenomics-checklist.md](references/tokenomics-checklist.md) or [complianc
 
 If multiple apply (e.g. DeFi on L2), load all relevant modules and merge checklists into the PRD appendix—do not drop L2 bridge UX when specifying pool deposits.
 
+**Cross-chain / bridges:** load [cross-chain-risks.md](references/cross-chain-risks.md).
+
+**Evidence tiers (no cross-skill file needed):** [evidence-tiers.md](references/evidence-tiers.md).
+
 ---
 
 ## Grounding protocol (Gate 0)
@@ -203,5 +210,7 @@ Next action:
 | [defi-product-surface.md](references/defi-product-surface.md) | DeFi product (Gate 0–2, 2b) |
 | [l2-product-surface.md](references/l2-product-surface.md) | L2 / rollup product (Gate 0–2) |
 | [consumer-product-surface.md](references/consumer-product-surface.md) | Consumer product (Gate 0–2) |
+| [cross-chain-risks.md](references/cross-chain-risks.md) | Bridges / multi-chain |
+| [evidence-tiers.md](references/evidence-tiers.md) | Tier tags in PRD |
 
 Related skill: `web3-product-strategy`

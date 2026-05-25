@@ -8,6 +8,9 @@ description: >
   go/no-go, should we build, market research, competitive analysis, protocol
   comparison, trend scan, prioritization, strategy memo, opportunity cost.
   Pair with web3-product-specification after the memo is confirmed.
+metadata:
+  version: "1.3.0"
+  package: web3-product-manager-skill
 ---
 
 # Web3 Product Strategy
@@ -63,7 +66,9 @@ Phase 5: Track & retrospective (optional, post-ship)
 Detail: [references/phase-guide.md](references/phase-guide.md)  
 Memo output: [references/strategy-memo-template.md](references/strategy-memo-template.md)  
 Data sources: [references/data-sources.md](references/data-sources.md)  
-Domain lenses (Phase 2): DeFi / L2 / Consumer — load matching module from `web3-product-specification/references/` when researching market fit or competitive benchmarks.
+Domain lenses (Phase 2): DeFi / L2 / Consumer — load from sibling skill  
+`.cursor/skills/web3-product-specification/references/{defi|l2|consumer}-product-surface.md`  
+(both skills must be installed; see orchestrator `pipeline-summary.md`).
 
 ---
 

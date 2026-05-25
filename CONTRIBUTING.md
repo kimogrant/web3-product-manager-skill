@@ -28,10 +28,11 @@ Thank you for improving Web3 Product Manager Skills.
 ## Local checks
 
 ```bash
-python tests/test_layout.py
-python tests/test_quality.py
+python -m unittest discover -s tests -v
 ./skill.sh list
 ```
+
+Edit examples only under repo `examples/` (not under `skills/*/examples/`).
 
 ## Scope we avoid
 
