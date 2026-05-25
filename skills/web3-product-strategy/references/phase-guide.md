@@ -2,6 +2,14 @@
 
 Load this file when executing Phases 1–5 of `web3-product-strategy`.
 
+## Source traceability
+
+1. In Phase 1, register inputs as `SRC-1`, `SRC-2`, … in a running **Source index** table.
+2. In Phases 2–4, tag every material claim: `(Source: SRC-2, tier: on-chain, as-of: YYYY-MM-DD)`.
+3. Synthesized conclusions list **all** contributing SRC IDs.
+4. If no input supports a claim, tag `Implicit` and list in open questions—do not present as verified fact.
+5. Attach the Source index to the memo handoff for `web3-product-specification`.
+
 ---
 
 ## Phase 1: Frame & reframe
@@ -13,6 +21,7 @@ Load this file when executing Phases 1–5 of `web3-product-strategy`.
 3. Identify decision type: new product | major feature | optimization | response to competitor.
 4. Confirm mode (Full / Express / Pulse) and time budget.
 5. Capture constraints and regulatory sensitivity (low / med / high).
+6. Open **Source index** — assign `SRC-1` to user brief; reserve `SRC-2+` for artifacts.
 
 **Reframe check (S7):** If the team is debating implementation before validating the problem, pause and document the problem hypothesis separately.
 
@@ -53,6 +62,14 @@ Run **Track A (build case)** and **Track B (challenge case)** independently.
 | Incentives | Mercenary capital, farm-and-dump risk? |
 
 Use [data-sources.md](data-sources.md) for source priority.
+
+**Domain lenses (optional, Phase 2):** If the decision is clearly DeFi, L2, or Consumer, load the matching specialist reference from the specification skill for benchmark and risk prompts:
+
+| Domain | File (in `web3-product-specification/references/`) |
+|--------|-----------------------------------------------------|
+| DeFi | `defi-product-surface.md` — §2 audit + §5 metrics |
+| L2 | `l2-product-surface.md` — §2 trust assumptions + §5 metrics |
+| Consumer | `consumer-product-surface.md` — §2 funnel + §8 metrics |
 
 **Rules:**
 

@@ -18,7 +18,17 @@ Answers: **Should we build this, why now, and what do we stop doing?**
 
 Structured decision workflow for small teams, fast cycles, and deliverables that survive investor and engineering scrutiny.
 
-**Handoff:** When the memo is confirmed → run `web3-product-specification` with the memo as input.
+**Handoff:** When the memo is confirmed → run `web3-product-specification` with the memo as input (or use `web3-product-manager` for the full pipeline).
+
+---
+
+## When NOT to use
+
+- User already has an **approved strategy memo** and only needs a PRD → `web3-product-specification`
+- **Implementation, audit, or ticket coding** requests → engineering workflows
+- **Definitive legal or tax advice** on tokens → counsel
+- **Price / APY predictions** or investment advice → refuse
+- User wants **full pipeline** without switching skills → `web3-product-manager`
 
 ---
 
@@ -52,7 +62,8 @@ Phase 5: Track & retrospective (optional, post-ship)
 
 Detail: [references/phase-guide.md](references/phase-guide.md)  
 Memo output: [references/strategy-memo-template.md](references/strategy-memo-template.md)  
-Data sources: [references/data-sources.md](references/data-sources.md)
+Data sources: [references/data-sources.md](references/data-sources.md)  
+Domain lenses (Phase 2): DeFi / L2 / Consumer — load matching module from `web3-product-specification/references/` when researching market fit or competitive benchmarks.
 
 ---
 
@@ -68,6 +79,18 @@ Data sources: [references/data-sources.md](references/data-sources.md)
 | S6 | Falsifiable bets | Key assumptions have disproof signals |
 | S7 | Reframe before answer | Validate the decision question itself |
 | S8 | Contrarian scan | Seek non-consensus and weak signals explicitly |
+| S9 | Source traceability | Tag claims with `(Source: SRC-n, tier)`; see phase guide |
+
+---
+
+## Source registry (Phase 1)
+
+Assign IDs to every input; reuse across phases:
+
+| ID | Typical input |
+|----|----------------|
+| SRC-1 | User brief / this conversation |
+| SRC-2+ | Each document, URL, dataset, or interview transcript |
 
 ---
 
@@ -110,9 +133,10 @@ Without confirmation, do not invoke `web3-product-specification`.
 ## Agent behavior
 
 1. Read this file, then load **only** the reference file for the active phase.
-2. Cite data source tier (on-chain / report / first-party / sentiment) per finding.
+2. Cite `Source: SRC-n` and data tier (on-chain / report / first-party / sentiment) per finding.
 3. Mark unknowns as `PENDING`—never invent TVL, addresses, or user counts.
 4. End each phase with a short checkpoint block (status, open questions, next phase).
+5. Pass source index with memo at handoff to specification.
 
 ---
 

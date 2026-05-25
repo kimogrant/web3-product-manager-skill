@@ -2,6 +2,27 @@
 
 Load for the active gate only. Requires confirmed strategy memo.
 
+## Gate sequence (canonical)
+
+```
+Gate 0 → Gate 1 → Gate 2 (stories) → [Gate 2b tokenomics if triggered] → Gate 2 exit
+  → Gate 3 (compliance if triggered) → Gate 4
+```
+
+Do **not** start Gate 3 until Gate 2 **and** 2b (if applicable) are complete.
+
+### Domain specialist modules (Gate 0–2)
+
+Load when the product fits (multiple allowed):
+
+| Module | Trigger |
+|--------|---------|
+| [defi-product-surface.md](defi-product-surface.md) | Lending, DEX, LP, vaults, perps, on-chain yield |
+| [l2-product-surface.md](l2-product-surface.md) | L2/rollup, bridge, paymaster, sequencer-dependent UX |
+| [consumer-product-surface.md](consumer-product-surface.md) | Retail onboarding, social, gaming, NFT app, mini-app |
+
+Append completed checklist sections to PRD §4 or §6 as **Domain appendix**.
+
 ---
 
 ## Gate 0: Ground truth audit
@@ -31,6 +52,7 @@ Load for the active gate only. Requires confirmed strategy memo.
 - Audit summary (≤1 page)
 - List of `PENDING` with owner
 - Updated delta table
+- **Source index** continued from strategy memo (`SRC-1` = memo; add SRC for each new artifact)
 
 **Exit:** User confirms audit accuracy or accepts listed `PENDING` risk.
 
@@ -100,19 +122,21 @@ For each story ask:
 
 Change one variable (chain, wallet type, amount near limit, RPC slow) — does spec still hold? If not, add criteria.
 
-**Trigger Gate 2b** if tokenomics touched — see [tokenomics-checklist.md](tokenomics-checklist.md).
+Tag each story and acceptance criterion with `(Source: SRC-n)` where applicable.
 
-**Exit:** Stories reviewed; PRD skeleton populated from [prd-template.md](prd-template.md).
+**Exit Gate 2 (requirements only):** Stories reviewed; PRD §6 drafted.
 
 ---
 
-## Gate 2b: Tokenomics (conditional)
+## Gate 2b: Tokenomics (conditional, still inside Gate 2)
 
-Run when any: token launch, emissions, fee switch, points, ve-model, governance weight, liquidity mining.
+Run **after** Gate 2 stories exist, **before** marking Gate 2 complete in the checkpoint.
+
+**Trigger** when any: token launch, emissions, fee switch, points, ve-model, governance weight, liquidity mining.
 
 Load [tokenomics-checklist.md](tokenomics-checklist.md). Attach completed checklist to PRD appendix.
 
-**Exit:** Checklist complete or explicit `N/A` with reason signed by user.
+**Exit Gate 2 (full):** Checklist complete or explicit `N/A` with reason signed by user → then checkpoint may show Gate 2 ✅.
 
 ---
 

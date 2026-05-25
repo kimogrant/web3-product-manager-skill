@@ -86,6 +86,18 @@ Document at least **2** contrarian inputs in Full mode.
 
 ---
 
+## Domain-specific benchmarks (Phase 2)
+
+When the decision is vertical-specific, load the matching specification reference for metric definitions and risk prompts:
+
+| Vertical | Reference | Priority metrics |
+|----------|-----------|------------------|
+| DeFi | `defi-product-surface.md` | TVL, volume, revenue, utilization, bad debt |
+| L2 | `l2-product-surface.md` | Bridge flow, TTFX, tx success, sequencer uptime |
+| Consumer | `consumer-product-surface.md` | Activation, D7/D30, funded wallets, support rate |
+
+---
+
 ## Data hygiene
 
 - State `as-of` date for all metrics

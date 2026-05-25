@@ -29,6 +29,7 @@ Thank you for improving Web3 Product Manager Skills.
 
 ```bash
 python tests/test_layout.py
+python tests/test_quality.py
 ./skill.sh list
 ```
 

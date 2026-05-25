@@ -18,7 +18,11 @@ class TestLayout(unittest.TestCase):
         self.assertRegex(version, r"^\d+\.\d+\.\d+$")
 
     def test_skill_directories(self) -> None:
-        expected = {"web3-product-strategy", "web3-product-specification"}
+        expected = {
+            "web3-product-manager",
+            "web3-product-strategy",
+            "web3-product-specification",
+        }
         found = {p.name for p in SKILLS.iterdir() if p.is_dir() and (p / "SKILL.md").exists()}
         self.assertEqual(expected, found)
 
@@ -51,6 +55,9 @@ class TestLayout(unittest.TestCase):
                 "prd-template.md",
                 "tokenomics-checklist.md",
                 "compliance-surface.md",
+                "defi-product-surface.md",
+                "l2-product-surface.md",
+                "consumer-product-surface.md",
             ],
         }
         for skill, files in refs.items():

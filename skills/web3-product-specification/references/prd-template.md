@@ -12,9 +12,16 @@ Use at Gate 2 onward. Link to confirmed strategy memo at top.
 | Version | 0.1 |
 | Status | Draft / In review / Ready for engineering |
 | Author | |
-| Strategy memo | [link or filename] |
+| Strategy memo | [link or filename] — SRC-1 |
 | Chains | |
 | Target release | |
+
+## 0. Source index
+
+| ID | Description | Tier | Used in sections |
+|----|-------------|------|------------------|
+| SRC-1 | Strategy memo | first-party | |
+| SRC-2 | | | |
 
 ## 1. Summary
 
@@ -49,6 +56,12 @@ Use at Gate 2 onward. Link to confirmed strategy memo at top.
 ## 5. Information architecture (Gate 1)
 
 [Surface map, journeys]
+
+## 5b. Domain appendix (optional)
+
+| Domain | Module used | Summary |
+|--------|-------------|---------|
+| DeFi / L2 / Consumer | [defi \| l2 \| consumer]-product-surface.md | Key risks + checklist status |
 
 ## 6. Requirements (Gate 2)
 
@@ -145,3 +158,4 @@ Use at Gate 2 onward. Link to confirmed strategy memo at top.
 - [ ] No fabricated contract addresses or event names
 - [ ] Tokenomics and compliance sections filled or N/A with reason
 - [ ] Kill conditions from memo reflected in metrics section
+- [ ] Material requirements cite `Source: SRC-n` or `Implicit`

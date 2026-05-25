@@ -21,21 +21,37 @@ Turns a **confirmed strategy memo** into engineering-ready requirements, optiona
 
 **Prerequisite:** Confirmed output from `web3-product-strategy` (or user-provided equivalent memo with recommendation and kill conditions).
 
+For full pipeline routing, start with `web3-product-manager`.
+
+---
+
+## When NOT to use
+
+- No confirmed strategy memo (recommendation + kill conditions + user approval)
+- **Go/no-go or market sizing only** → `web3-product-strategy`
+- **Solidity implementation, audit, or formal verification** → engineering / security workflows
+- **Legal classification** of tokens or securities → counsel; this skill only maps compliance surface
+- **Marketing campaigns or community moderation policy** without product spec needs
+- **Visual design system only** (colors, typography) with no behavioral requirements
+
 ---
 
 ## Gate flow
 
 ```
-Gate 0: Ground truth audit (product + chain surface)
+Gate 0: Ground truth audit
   ↓
 Gate 1: Information architecture & flows
   ↓
-Gate 2: Three-layer requirements + tokenomics gate (if applicable)
+Gate 2: Three-layer requirements (all stories)
+       └─ Gate 2b: Tokenomics checklist (conditional; finish before leaving Gate 2)
   ↓
-Gate 3: Compliance & abuse surface (if applicable)
+Gate 3: Compliance & abuse surface (conditional)
   ↓
 Gate 4: Iteration plan & acceptance criteria
 ```
+
+**Order rule:** Complete Gate 2 stories first. If tokenomics triggers apply, run **Gate 2b inside Gate 2** before Gate 2 exit. Then Gate 3 (if triggered), then Gate 4.
 
 Each gate ends with a **checkpoint** (see below). Do not advance with blocking `PENDING` items unresolved unless the user explicitly accepts risk.
 
@@ -57,6 +73,18 @@ Compliance surface: [references/compliance-surface.md](references/compliance-sur
 | P5 | Challenge each requirement | Exists? Necessary? Cheaper alternative? |
 | P6 | No fabricated chain facts | Real contract names, events, IDs—or `TBD` |
 | P7 | Checkpoint at boundaries | Resumable state for parallel workstreams |
+| P8 | Source traceability | Tag requirements with `(Source: SRC-n)` from registered inputs |
+
+---
+
+## Source registry (start at Gate 0)
+
+| ID | Register when |
+|----|----------------|
+| SRC-1 | Strategy memo (required) |
+| SRC-2+ | Screenshots, Figma, APIs, audits, user quotes, dashboards |
+
+Every requirement, metric, and assumption in the PRD should cite `Source: SRC-n` or `Implicit` (flag for extra review).
 
 ---
 
@@ -82,6 +110,16 @@ Out of scope here: pixel-level visual design (colors, spacing).
 | Compliance (Gate 3) | Users fund value, KYC/AML sensitivity, geo restrictions, securities-like marketing |
 
 Load [tokenomics-checklist.md](references/tokenomics-checklist.md) or [compliance-surface.md](references/compliance-surface.md) when triggered.
+
+## Domain specialist references (load one or more at Gate 0–2)
+
+| Domain | Load when | Reference |
+|--------|-----------|-----------|
+| **DeFi** | Lending, DEX, LP, vaults, perps, protocol yield | [defi-product-surface.md](references/defi-product-surface.md) |
+| **L2** | Rollup/app-chain deployment, bridge, paymaster, sequencer UX | [l2-product-surface.md](references/l2-product-surface.md) |
+| **Consumer** | Retail wallet, onboarding, social, gaming, NFT app, mini-app | [consumer-product-surface.md](references/consumer-product-surface.md) |
+
+If multiple apply (e.g. DeFi on L2), load all relevant modules and merge checklists into the PRD appendix—do not drop L2 bridge UX when specifying pool deposits.
 
 ---
 
@@ -146,10 +184,11 @@ Next action:
 
 ## Agent behavior
 
-1. Confirm strategy memo exists; if not, stop and ask user to run strategy skill first.
+1. Confirm strategy memo exists; if not, stop and ask user to run `web3-product-strategy` or `web3-product-manager` Step 1.
 2. Load gate guide for active gate only.
-3. Run Gate 2b / 3 when triggers match—do not skip silently.
-4. Output PRD using template; save checkpoint at each gate.
+3. Finish Gate 2 stories, then Gate 2b (if triggered), before marking Gate 2 complete.
+4. Run Gate 3 when triggers match—do not skip silently.
+5. Output PRD using template; save checkpoint at each gate; maintain source index.
 
 ---
 
@@ -161,5 +200,8 @@ Next action:
 | [prd-template.md](references/prd-template.md) | Gate 2+ document output |
 | [tokenomics-checklist.md](references/tokenomics-checklist.md) | Gate 2b |
 | [compliance-surface.md](references/compliance-surface.md) | Gate 3 |
+| [defi-product-surface.md](references/defi-product-surface.md) | DeFi product (Gate 0–2, 2b) |
+| [l2-product-surface.md](references/l2-product-surface.md) | L2 / rollup product (Gate 0–2) |
+| [consumer-product-surface.md](references/consumer-product-surface.md) | Consumer product (Gate 0–2) |
 
 Related skill: `web3-product-strategy`

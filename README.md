@@ -4,7 +4,7 @@ Agent Skills for **Web3 product management**: strategy decisions, on-chain signa
 
 Built for the [Agent Skills](https://agentskills.io) format (`SKILL.md` + on-demand `references/`). Works with **Cursor**, Claude Code, Codex, and other agents that discover skills from `.cursor/skills/` or `~/.cursor/skills/`.
 
-**Version:** see [`VERSION`](VERSION)
+**Version:** [`1.2.0`](VERSION) · [Changelog](CHANGELOG.md) · [Skill catalog](docs/skill-catalog.md)
 
 ---
 
@@ -12,15 +12,16 @@ Built for the [Agent Skills](https://agentskills.io) format (`SKILL.md` + on-dem
 
 | Skill | Question it answers |
 |-------|---------------------|
+| [`web3-product-manager`](skills/web3-product-manager/SKILL.md) | **Orchestrator** — route full pipeline with enforced order |
 | [`web3-product-strategy`](skills/web3-product-strategy/SKILL.md) | Should we build this? Why now? What do we stop doing? |
 | [`web3-product-specification`](skills/web3-product-specification/SKILL.md) | How do we specify it for engineering, design, and compliance review? |
 
-Run **strategy first**, then **specification** once the strategy memo is confirmed.
+**Recommended:** `/web3-product-manager` for greenfield work, or invoke child skills directly for single phases.
 
 ```
-web3-product-strategy  →  confirmed strategy memo
-        ↓
-web3-product-specification  →  PRD + tokenomics / compliance gates + iteration plan
+web3-product-manager
+  Step 1: web3-product-strategy  →  confirmed strategy memo (SRC index)
+  Step 2: web3-product-specification  →  PRD + gates + domain appendices
 ```
 
 ---
@@ -29,20 +30,19 @@ web3-product-specification  →  PRD + tokenomics / compliance gates + iteration
 
 ```text
 web3-product-manager-skill/
+├── CHANGELOG.md
 ├── VERSION
 ├── LICENSE
 ├── README.md
 ├── CONTRIBUTING.md
 ├── skill.sh
 ├── docs/
-│   └── installation.md
+│   ├── installation.md
+│   └── skill-catalog.md
 ├── skills/
+│   ├── web3-product-manager/
 │   ├── web3-product-strategy/
-│   │   ├── SKILL.md
-│   │   └── references/
 │   └── web3-product-specification/
-│       ├── SKILL.md
-│       └── references/
 ├── examples/
 └── tests/
 ```
@@ -51,45 +51,23 @@ web3-product-manager-skill/
 
 ## Install
 
-### Script (recommended)
-
-Requires Bash (Git Bash, WSL, macOS, or Linux):
-
 ```bash
-git clone https://github.com/YOUR_ORG/web3-product-manager-skill.git
+git clone https://github.com/kimogrant/web3-product-manager-skill.git
 cd web3-product-manager-skill
 chmod +x skill.sh
 ./skill.sh list
 ./skill.sh install /path/to/your/project
 ```
 
-Copies each skill bundle into `TARGET/.cursor/skills/<skill-name>/` (includes `references/`).
+Copies each skill bundle into `TARGET/.cursor/skills/<skill-name>/` including `references/` and `examples/`.
 
-Reload the editor, then invoke by name, for example:
+Reload Cursor, then invoke:
 
-- `/web3-product-strategy`
-- `/web3-product-specification`
+- `/web3-product-manager` — full pipeline
+- `/web3-product-strategy` — strategy only
+- `/web3-product-specification` — PRD only (requires confirmed memo)
 
-### Manual
-
-Copy **entire** skill folders (not only `SKILL.md`):
-
-```text
-your-project/.cursor/skills/web3-product-strategy/
-your-project/.cursor/skills/web3-product-specification/
-```
-
-### Personal (all projects)
-
-```bash
-./skill.sh install --personal
-```
-
-Installs to `~/.cursor/skills/` on Unix-like systems. On Windows, use Git Bash or WSL, or copy folders manually to `%USERPROFILE%\.cursor\skills\`.
-
-### Cursor remote rule
-
-Cursor Settings → Rules → Add Rule → Remote Rule (GitHub) → paste this repository URL.
+See [docs/installation.md](docs/installation.md) for personal install and remote rules.
 
 ---
 
@@ -97,18 +75,38 @@ Cursor Settings → Rules → Add Rule → Remote Rule (GitHub) → paste this r
 
 | You say… | Start with |
 |----------|------------|
-| "Should we build X?", "go/no-go", "market sizing", "competitive scan" | `web3-product-strategy` |
-| "Write a PRD", "spec this feature", "tokenomics review", "scope the sprint" | `web3-product-specification` |
-| Full greenfield feature | Strategy (Express or Full) → Specification |
+| "From idea to PRD", "full PM workflow" | `web3-product-manager` |
+| "Should we build X?", go/no-go, market scan | `web3-product-strategy` |
+| "Write a PRD", tokenomics review, scope sprint | `web3-product-specification` (memo required) |
+
+Each workflow skill includes a **When NOT to use** section to reduce mistaken auto-invocation.
 
 ---
 
 ## Design principles
 
-- **On-chain first** — Treat verifiable chain metrics as primary evidence; label lagged reports and sentiment separately.
-- **Progressive disclosure** — Lean `SKILL.md`; load `references/` only for the active phase or gate.
-- **Human checkpoints** — No silent skip of strategy confirmation or compliance / tokenomics gates.
-- **Ground before generate** — No fabricated contract names, event signatures, or addresses in specs.
+- **On-chain first** — Verifiable chain metrics primary; label report/sentiment tier.
+- **Progressive disclosure** — Lean `SKILL.md`; load `references/` per phase/gate only.
+- **Human checkpoints** — Memo confirmation before specification; tokenomics/compliance gates explicit.
+- **Ground before generate** — No fabricated contracts/events; use `TBD` and `PENDING`.
+- **Source traceability** — `SRC-n` tags from inputs through memo and PRD.
+
+### Domain specialist references
+
+| Module | Path |
+|--------|------|
+| DeFi | `skills/web3-product-specification/references/defi-product-surface.md` |
+| L2 / rollup | `skills/web3-product-specification/references/l2-product-surface.md` |
+| Consumer | `skills/web3-product-specification/references/consumer-product-surface.md` |
+
+---
+
+## Quality checks
+
+```bash
+python tests/test_layout.py
+python tests/test_quality.py
+```
 
 ---
 

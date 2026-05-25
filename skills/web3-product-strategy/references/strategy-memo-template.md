@@ -85,6 +85,15 @@ Copy into the workspace or deliver as the Phase 4 artifact. Replace bracketed pl
 |----|----------|-------|-----|
 | Q1 | | | |
 
+## Source index
+
+| ID | Description | Tier | As-of |
+|----|-------------|------|-------|
+| SRC-1 | | | |
+| SRC-2 | | on-chain / report / first-party / sentiment | |
+
+Claims without a row above must be tagged `Implicit` in the memo body.
+
 ## Handoff to specification
 
 - [ ] Memo confirmed by: [name/date]

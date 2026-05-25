@@ -4,6 +4,7 @@ set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SKILLS_SRC="${REPO_ROOT}/skills"
+EXAMPLES_SRC="${REPO_ROOT}/examples"
 
 usage() {
   cat <<'EOF'
@@ -12,8 +13,10 @@ Usage:
   ./skill.sh install <target-project-path>
   ./skill.sh install --personal
 
-Copies each skill bundle (SKILL.md + references/ + examples if present)
-into <target>/.cursor/skills/<skill-name>/ or ~/.cursor/skills/<skill-name>/.
+Copies each skill bundle (SKILL.md + references/ + examples/) into
+<target>/.cursor/skills/<skill-name>/ or ~/.cursor/skills/<skill-name>/.
+
+Repo examples/ are merged into each install (skill-local examples/ win on conflict).
 EOF
 }
 
@@ -23,6 +26,18 @@ list_skills() {
       basename "${dir}"
     fi
   done
+}
+
+copy_examples() {
+  local dest="$1"
+  if [[ ! -d "${EXAMPLES_SRC}" ]]; then
+    return 0
+  fi
+  mkdir -p "${dest}/examples"
+  # Repo-wide samples first, then skill-specific overrides
+  if [[ -d "${EXAMPLES_SRC}" ]]; then
+    cp -R "${EXAMPLES_SRC}/." "${dest}/examples/" 2>/dev/null || true
+  fi
 }
 
 install_one() {
@@ -40,8 +55,10 @@ install_one() {
     cp -R "${skill_dir}/references" "${dest}/"
   fi
   if [[ -d "${skill_dir}/examples" ]]; then
-    cp -R "${skill_dir}/examples" "${dest}/"
+    mkdir -p "${dest}/examples"
+    cp -R "${skill_dir}/examples/." "${dest}/examples/"
   fi
+  copy_examples "${dest}"
   echo "Installed: ${dest}"
 }
 
@@ -76,7 +93,7 @@ cmd_install() {
     exit 1
   fi
   echo "Done. ${count} skill(s) -> ${dest_root}"
-  echo "Reload Cursor, then invoke /web3-product-strategy or /web3-product-specification"
+  echo "Reload Cursor. Invoke: /web3-product-manager (full pipeline) or a child skill."
 }
 
 case "${1:-}" in

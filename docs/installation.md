@@ -11,13 +11,13 @@
 ./skill.sh install /path/to/your/repo
 ```
 
-Result:
+Result (three skills):
 
 ```text
+your-repo/.cursor/skills/web3-product-manager/SKILL.md
 your-repo/.cursor/skills/web3-product-strategy/SKILL.md
-your-repo/.cursor/skills/web3-product-strategy/references/...
 your-repo/.cursor/skills/web3-product-specification/SKILL.md
-your-repo/.cursor/skills/web3-product-specification/references/...
+# Each folder includes references/ and examples/
 ```
 
 Commit `.cursor/skills/` if you want teammates to get the same agent behavior.
@@ -33,7 +33,7 @@ Installs under `~/.cursor/skills/` (Unix-like). Skills apply across projects.
 ## Verify discovery
 
 1. Reload Cursor after install.
-2. In Agent chat, type `/web3-product-strategy` or describe a go/no-go decision.
+2. In Agent chat, type `/web3-product-manager` (full pipeline) or a child skill name.
 3. Confirm the agent loads the skill (it should follow phase checkpoints and ask for missing inputs).
 
 ## Remote rule (GitHub URL)
