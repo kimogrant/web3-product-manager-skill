@@ -25,6 +25,8 @@
 | `consumer-product-surface.md` | Consumer vertical |
 | `evidence-tiers.md` | Tier tags (self-contained) |
 | `cross-chain-risks.md` | Bridge / multi-chain |
+| `methodology-toolkit.md` | M1–M4 on trigger |
+| `prototype-gate.md` | Gate 3.5 |
 
 ## Reference index (strategy skill)
 

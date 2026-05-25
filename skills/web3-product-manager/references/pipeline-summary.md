@@ -43,7 +43,10 @@ Load gate reference sections from `references/gate-guide.md`:
 | 2 | Three-layer stories |
 | 2b | `tokenomics-checklist.md` if triggered (before Gate 2 ✅) |
 | 3 | `compliance-surface.md` if triggered |
+| 3.5 | `prototype-gate.md` if triggered |
 | 4 | Iteration plan |
+
+**Methodology (any step):** `methodology-toolkit.md` — M1/M2 in Step 1, M3/M4 in Step 2 (trigger only).
 
 Output: PRD from `references/prd-template.md`.
 

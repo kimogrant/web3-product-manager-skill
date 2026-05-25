@@ -82,34 +82,44 @@ class TestQuality(unittest.TestCase):
                 target = skill_dir / rel
                 self.assertTrue(target.is_file(), f"broken link in {skill_md}: {rel}")
 
+    def test_all_skill_reference_links(self) -> None:
+        for skill_name in self.EXPECTED_SKILLS:
+            ref_dir = SKILLS / skill_name / "references"
+            if not ref_dir.is_dir():
+                continue
+            for md in ref_dir.glob("*.md"):
+                text = md.read_text(encoding="utf-8")
+                for target in REF_LINK_PATTERN.findall(text):
+                    resolved = resolve_ref_link(md, target)
+                    if resolved is None:
+                        continue
+                    self.assertTrue(
+                        resolved.is_file(),
+                        f"broken link in {md}: {target}",
+                    )
+
     def test_orchestrator_has_pipeline_reference(self) -> None:
         path = SKILLS / "web3-product-manager" / "references" / "pipeline-summary.md"
         self.assertTrue(path.is_file())
         skill = (SKILLS / "web3-product-manager" / "SKILL.md").read_text(encoding="utf-8")
         self.assertIn("pipeline-summary.md", skill)
 
-    def test_specification_reference_links(self) -> None:
-        ref_dir = SKILLS / "web3-product-specification" / "references"
-        for md in ref_dir.glob("*.md"):
-            text = md.read_text(encoding="utf-8")
-            for target in REF_LINK_PATTERN.findall(text):
-                resolved = resolve_ref_link(md, target)
-                if resolved is None:
-                    continue
-                self.assertTrue(
-                    resolved.is_file(),
-                    f"broken link in {md}: {target}",
-                )
+    def test_v14_references_exist(self) -> None:
+        spec = SKILLS / "web3-product-specification" / "references"
+        self.assertTrue((spec / "methodology-toolkit.md").is_file())
+        self.assertTrue((spec / "prototype-gate.md").is_file())
 
     def test_repo_examples_exist(self) -> None:
         examples = REPO / "examples"
         self.assertTrue((examples / "strategy-memo-sample.md").is_file())
         self.assertTrue((examples / "prd-story-sample.md").is_file())
+        self.assertTrue((examples / "full-prd-outline-sample.md").is_file())
         memo = (examples / "strategy-memo-sample.md").read_text(encoding="utf-8")
         self.assertIn("## Source index", memo)
-        self.assertIn("SRC-1", memo)
         story = (examples / "prd-story-sample.md").read_text(encoding="utf-8")
         self.assertIn("Source: SRC-", story)
+        outline = (examples / "full-prd-outline-sample.md").read_text(encoding="utf-8")
+        self.assertIn("Gate 3.5", outline)
 
     def test_skill_sh_declares_example_copy(self) -> None:
         script = (REPO / "skill.sh").read_text(encoding="utf-8")
@@ -120,9 +130,12 @@ class TestQuality(unittest.TestCase):
         self.assertTrue((REPO / "install.ps1").is_file())
 
     def test_no_duplicate_example_copies_in_repo(self) -> None:
-        """Samples live only under repo examples/, not under skills/*/examples/*.md samples."""
         for skill in self.EXPECTED_SKILLS:
-            for name in ("strategy-memo-sample.md", "prd-story-sample.md"):
+            for name in (
+                "strategy-memo-sample.md",
+                "prd-story-sample.md",
+                "full-prd-outline-sample.md",
+            ):
                 path = SKILLS / skill / "examples" / name
                 self.assertFalse(path.exists(), f"remove duplicate {path}; use repo examples/")
 

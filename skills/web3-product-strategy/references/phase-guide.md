@@ -116,6 +116,15 @@ Include opportunity cost (S5): what stops if this proceeds.
 
 **Checkpoint:** Present recommendation + kill conditions; await user pushback before Phase 4.
 
+**Methodology triggers (Phase 2–3):**
+
+| Signal | Load |
+|--------|------|
+| Competing solution directions | `methodology-toolkit.md` **M1** (sibling specification skill path) |
+| High-risk assumptions before build | **M2** |
+
+Path: `.cursor/skills/web3-product-specification/references/methodology-toolkit.md`
+
 ---
 
 ## Phase 4: Strategy memo

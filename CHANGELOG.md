@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.4.0] — 2026-05-25
+
+### Added
+
+- `methodology-toolkit.md` — on-demand M1 (OST), M2 (PoL), M3 (epic hypothesis), M4 (story splitting)
+- `prototype-gate.md` — Gate 3.5 conditional prototype validation (Figma / HTML / staging)
+- `examples/full-prd-outline-sample.md` — full PRD table-of-contents walkthrough
+- `README.zh.md` — Chinese install and usage guide
+- Reference link tests for all skills (not only specification)
+
+### Changed
+
+- PRD template renumbered with §7 Prototype validation
+- Gate flow and checkpoints include Gate 3.5
+- `.gitignore` excludes `__pycache__` and pytest cache
+- Skill `metadata.version` → 1.4.0
+
 ## [1.3.0] — 2026-05-25
 
 ### Added

@@ -63,6 +63,8 @@ class TestLayout(unittest.TestCase):
                 "consumer-product-surface.md",
                 "evidence-tiers.md",
                 "cross-chain-risks.md",
+                "methodology-toolkit.md",
+                "prototype-gate.md",
             ],
         }
         for skill, files in refs.items():

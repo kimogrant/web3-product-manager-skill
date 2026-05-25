@@ -93,7 +93,16 @@ Use at Gate 2 onward. Link to confirmed strategy memo at top.
 
 [Repeat per story]
 
-## 7. Wallet & chain requirements
+## 7. Prototype validation (Gate 3.5)
+
+| Field | Value |
+|-------|-------|
+| Mode | Figma / HTML / Staging |
+| Link or path | |
+| Review outcome | Approved / Approved with PRD edits / N/A |
+| Deltas to PRD | |
+
+## 8. Wallet & chain requirements
 
 | Requirement | Detail |
 |-------------|--------|
@@ -103,7 +112,7 @@ Use at Gate 2 onward. Link to confirmed strategy memo at top.
 | Approvals | |
 | Indexing / events | |
 
-## 8. Failure & edge cases
+## 9. Failure & edge cases
 
 | Scenario | Expected UX | Backend behavior |
 |----------|-------------|------------------|
@@ -113,33 +122,33 @@ Use at Gate 2 onward. Link to confirmed strategy memo at top.
 | Insufficient gas | | |
 | Stale price / oracle | | |
 
-## 9. Tokenomics appendix (Gate 2b)
+## 10. Tokenomics appendix (Gate 2b)
 
 [Link checklist or N/A]
 
-## 10. Compliance & abuse surface (Gate 3)
+## 11. Compliance & abuse surface (Gate 3)
 
 [Link risk table or N/A]
 
-## 11. Metrics & instrumentation
+## 12. Metrics & instrumentation
 
 | Metric | Definition | Source | Owner |
 |--------|------------|--------|-------|
 | | | | |
 
-## 12. Iteration plan (Gate 4)
+## 13. Iteration plan (Gate 4)
 
 | Slice | Scope | Exit criteria |
 |-------|-------|---------------|
 | | | |
 
-## 13. Open questions
+## 14. Open questions
 
 | ID | Question | Owner | Due |
 |----|----------|-------|-----|
 | | | | |
 
-## 14. Approvals
+## 15. Approvals
 
 | Role | Name | Date |
 |------|------|------|

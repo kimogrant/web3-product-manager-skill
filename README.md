@@ -4,7 +4,7 @@ Agent Skills for **Web3 product management**: strategy decisions, on-chain signa
 
 Built for the [Agent Skills](https://agentskills.io) format (`SKILL.md` + on-demand `references/`). Works with **Cursor**, Claude Code, Codex, and other agents that discover skills from `.cursor/skills/` or `~/.cursor/skills/`.
 
-**Version:** [`1.3.0`](VERSION) · [Changelog](CHANGELOG.md) · [Skill catalog](docs/skill-catalog.md)
+**Version:** [`1.4.0`](VERSION) · [Changelog](CHANGELOG.md) · [Skill catalog](docs/skill-catalog.md) · [简体中文](README.zh.md)
 
 ---
 
@@ -114,6 +114,16 @@ python -m unittest discover -s tests -v
 ```
 
 CI runs the same on push (see `.github/workflows/ci.yml`).
+
+## Using the full pipeline in Cursor
+
+Cursor does not auto-chain skills. For end-to-end work:
+
+1. Install **all three** skills (`./skill.sh install` or `install.ps1`).
+2. Invoke `/web3-product-manager`.
+3. Confirm the agent **reads** `pipeline-summary.md` and each child `SKILL.md` under `.cursor/skills/` (not from memory alone).
+
+Optional: run `/web3-product-strategy` then `/web3-product-specification` manually after memo confirmation.
 
 ---
 

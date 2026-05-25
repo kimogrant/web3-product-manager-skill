@@ -10,7 +10,7 @@ description: >
   Requires a confirmed strategy memo from web3-product-strategy. Not for pure
   smart contract coding or visual design tokens alone.
 metadata:
-  version: "1.3.0"
+  version: "1.4.0"
   package: web3-product-manager-skill
 ---
 
@@ -51,10 +51,12 @@ Gate 2: Three-layer requirements (all stories)
   ↓
 Gate 3: Compliance & abuse surface (conditional)
   ↓
+Gate 3.5: Prototype validation (conditional)
+  ↓
 Gate 4: Iteration plan & acceptance criteria
 ```
 
-**Order rule:** Complete Gate 2 stories first. If tokenomics triggers apply, run **Gate 2b inside Gate 2** before Gate 2 exit. Then Gate 3 (if triggered), then Gate 4.
+**Order rule:** Complete Gate 2 stories first. If tokenomics triggers apply, run **Gate 2b inside Gate 2** before Gate 2 exit. Then Gate 3 (if triggered), Gate 3.5 (if triggered), then Gate 4.
 
 Each gate ends with a **checkpoint** (see below). Do not advance with blocking `PENDING` items unresolved unless the user explicitly accepts risk.
 
@@ -111,8 +113,9 @@ Out of scope here: pixel-level visual design (colors, spacing).
 |------|----------|
 | Tokenomics (Gate 2b) | Token, points, fees, incentives, governance weight, or emissions touched |
 | Compliance (Gate 3) | Users fund value, KYC/AML sensitivity, geo restrictions, securities-like marketing |
+| Prototype (Gate 3.5) | New/changed journeys, wallet flows, stakeholder needs clickable review |
 
-Load [tokenomics-checklist.md](references/tokenomics-checklist.md) or [compliance-surface.md](references/compliance-surface.md) when triggered.
+Load matching references when triggered. **Methodology (M1–M4):** [methodology-toolkit.md](references/methodology-toolkit.md) on trigger signals only.
 
 ## Domain specialist references (load one or more at Gate 0–2)
 
@@ -156,6 +159,7 @@ Gates:
 - Gate 2 Requirements:    ✅ | 🔄 | ⬜
 - Gate 2b Tokenomics:     ✅ | 🔄 | ⬜ | N/A
 - Gate 3 Compliance:      ✅ | 🔄 | ⬜ | N/A
+- Gate 3.5 Prototype:     ✅ | 🔄 | ⬜ | N/A
 - Gate 4 Iteration plan:  ✅ | 🔄 | ⬜
 
 Confirmed decisions:
@@ -175,6 +179,7 @@ Next action:
 - [ ] Failure modes: rejected tx, reorg, RPC down, insufficient gas
 - [ ] Tokenomics gate completed or marked N/A with reason
 - [ ] Compliance surface completed or marked N/A with reason
+- [ ] Prototype gate (3.5) completed or marked N/A with reason
 - [ ] No `TBD` on safety-critical paths without accepted risk flag
 - [ ] PRD sections match [prd-template.md](references/prd-template.md)
 
@@ -194,8 +199,9 @@ Next action:
 1. Confirm strategy memo exists; if not, stop and ask user to run `web3-product-strategy` or `web3-product-manager` Step 1.
 2. Load gate guide for active gate only.
 3. Finish Gate 2 stories, then Gate 2b (if triggered), before marking Gate 2 complete.
-4. Run Gate 3 when triggers match—do not skip silently.
-5. Output PRD using template; save checkpoint at each gate; maintain source index.
+4. Run Gate 3 and Gate 3.5 when triggers match—do not skip silently.
+5. Check methodology toolkit (M3/M4) triggers during Gate 2.
+6. Output PRD using template; save checkpoint at each gate; maintain source index.
 
 ---
 
@@ -212,5 +218,7 @@ Next action:
 | [consumer-product-surface.md](references/consumer-product-surface.md) | Consumer product (Gate 0–2) |
 | [cross-chain-risks.md](references/cross-chain-risks.md) | Bridges / multi-chain |
 | [evidence-tiers.md](references/evidence-tiers.md) | Tier tags in PRD |
+| [methodology-toolkit.md](references/methodology-toolkit.md) | M1–M4 on trigger |
+| [prototype-gate.md](references/prototype-gate.md) | Gate 3.5 |
 
 Related skill: `web3-product-strategy`

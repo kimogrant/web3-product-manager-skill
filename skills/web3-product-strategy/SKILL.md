@@ -9,7 +9,7 @@ description: >
   comparison, trend scan, prioritization, strategy memo, opportunity cost.
   Pair with web3-product-specification after the memo is confirmed.
 metadata:
-  version: "1.3.0"
+  version: "1.4.0"
   package: web3-product-manager-skill
 ---
 
@@ -85,6 +85,10 @@ Domain lenses (Phase 2): DeFi / L2 / Consumer — load from sibling skill
 | S7 | Reframe before answer | Validate the decision question itself |
 | S8 | Contrarian scan | Seek non-consensus and weak signals explicitly |
 | S9 | Source traceability | Tag claims with `(Source: SRC-n, tier)`; see phase guide |
+| S10 | On-demand methods | Run M1/M2 only when triggers fire — see methodology toolkit |
+
+**Methodology (M1 OST, M2 PoL):** sibling skill  
+`.cursor/skills/web3-product-specification/references/methodology-toolkit.md`
 
 ---
 

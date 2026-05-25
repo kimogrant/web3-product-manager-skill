@@ -6,10 +6,11 @@ Load for the active gate only. Requires confirmed strategy memo.
 
 ```
 Gate 0 → Gate 1 → Gate 2 (stories) → [Gate 2b tokenomics if triggered] → Gate 2 exit
-  → Gate 3 (compliance if triggered) → Gate 4
+  → Gate 3 (compliance if triggered) → Gate 3.5 (prototype if triggered) → Gate 4
 ```
 
-Do **not** start Gate 3 until Gate 2 **and** 2b (if applicable) are complete.
+Do **not** start Gate 3 until Gate 2 **and** 2b (if applicable) are complete.  
+Do **not** start Gate 4 until Gate 3.5 is ✅ or N/A.
 
 ### Domain specialist modules (Gate 0–2)
 
@@ -126,6 +127,8 @@ Change one variable (chain, wallet type, amount near limit, RPC slow) — does s
 
 Tag each story and acceptance criterion with `(Source: SRC-n)` where applicable.
 
+**Methodology triggers (Gate 2):** Epic missing metrics → [methodology-toolkit.md](methodology-toolkit.md) **M3**. Oversized story → **M4**.
+
 **Exit Gate 2 (requirements only):** Stories reviewed; PRD §6 drafted.
 
 ---
@@ -149,6 +152,14 @@ Run when: user funds move, yield marketing, geo-restricted users, KYC, securitie
 Load [compliance-surface.md](compliance-surface.md). Output risk table—not legal advice.
 
 **Exit:** Surface documented; counsel review flagged if high sensitivity.
+
+---
+
+## Gate 3.5: Prototype validation (conditional)
+
+Run when UX/journey validation is needed before locking iterations. Full playbook: [prototype-gate.md](prototype-gate.md).
+
+**Exit:** Prototype approved or PRD updated from review deltas; checkpoint Gate 3.5 ✅ or N/A.
 
 ---
 

@@ -10,7 +10,7 @@ description: >
   strategy then spec. Do not use for single-phase tasks that should invoke a child
   skill directly.
 metadata:
-  version: "1.3.0"
+  version: "1.4.0"
   package: web3-product-manager-skill
 ---
 
